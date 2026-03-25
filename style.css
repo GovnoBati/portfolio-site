@@ -105,7 +105,7 @@ img {
   z-index: 2;
   right: clamp(-80px, -6vw, -20px);
   top: clamp(-30px, -3vw, 0px);
-  width: clamp(340px, 60vw, 1200px);
+  width: clamp(300px, 50vw, 1000px);
   pointer-events: none;
 }
 
