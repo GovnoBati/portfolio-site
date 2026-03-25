@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello I'm Olesia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+
+    <!-- BLOCK 1 -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+  <h1>
+    HELLO<br>
+    I’M<br>
+    OLESIA
+  </h1>
+</div>
+
+        <div class="hero-image-wrap">
+          <img src="images/rabbit.png" alt="Rabbit illustration" class="hero-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 2 -->
+    <section class="about">
+      <div class="about-inner">
+        <div class="about-left">
+          <h2>About</h2>
+
+          <p>
+            I’m a graphic designer focused on visual identity and conceptual design.
+            My work combines clear visual systems with strong ideas to create memorable
+            and meaningful communication. I enjoy building identities that can live
+            across different media, from posters and editorial to digital platforms.
+          </p>
+        </div>
+
+        <div class="about-right">
+          <img src="images/rabbit.gif" alt="Animated rabbit" class="about-gif" />
+        </div>
+      </div>
+    </section>
+
+<!-- BLOCK 3 -->
+<section class="gg-scroll" id="gg-scroll">
+  <div class="gg-sticky">
+    <div class="gg-track" id="gg-track">
+      <div class="gg-card"><img src="images/GG1.png" alt=""></div>
+      <div class="gg-card"><img src="images/GG2.png" alt=""></div>
+      <div class="gg-card"><img src="images/GG3.png" alt=""></div>
+      <div class="gg-card"><img src="images/GG4.png" alt=""></div>
+      <div class="gg-card"><img src="images/GG5.png" alt=""></div>
+      <div class="gg-card"><img src="images/GG6.png" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-scroll" id="s-scroll">
+    <div class="s-sticky">
+        <div class="s-track" id="s-track">
+            <div class="s-card"><img src="images/S1.png" alt=""></div>
+            <div class="s-card"><img src="images/S2.png" alt=""></div>
+            <div class="s-card"><img src="images/S3.png" alt=""></div>
+            <div class="s-card"><img src="images/S4.png" alt=""></div>
+            <div class="s-card"><img src="images/S5.png" alt=""></div>
+            <div class="s-card"><img src="images/S6.png" alt=""></div>
+            <div class="s-card"><img src="images/S7.png" alt=""></div>
+        </div>
+    </div>
+</section>
+
+<section class="yu-scroll" id="yu-scroll">
+  <div class="yu-sticky">
+    <div class="yu-track" id="yu-track">
+      <div class="yu-card"><img src="images/Yu1.png" alt=""></div>
+      <div class="yu-card"><img src="images/Yu2.png" alt=""></div>
+      <div class="yu-card"><img src="images/Yu3.png" alt=""></div>
+      <div class="yu-card"><img src="images/Yu4.png" alt=""></div>
+      <div class="yu-card"><img src="images/Yu5.png" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="other-scroll" id="other-scroll">
+  <div class="other-sticky">
+    <div class="other-track" id="other-track">
+
+      <div class="other-title">
+        <h2>Other projects</h2>
+      </div>
+
+      <div class="other-card vertical"><img src="images/poster1.png" alt=""></div>
+      <div class="other-card horizontal"><img src="images/poster2.png" alt=""></div>
+      <div class="other-card vertical"><img src="images/poster3.png" alt=""></div>
+      <div class="other-card vertical"><img src="images/poster4.png" alt=""></div>
+      <div class="other-card vertical"><img src="images/poster5.png" alt=""></div>
+      <div class="other-card vertical"><img src="images/poster6.png" alt=""></div>
+      <div class="other-card horizontal"><img src="images/poster7.png" alt=""></div>
+      <div class="other-card vertical"><img src="images/poster8.png" alt=""></div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact-block">
+  <div class="contact-inner">
+
+    <div class="contact-heading">
+      <h2 class="contact-title-main">Let’s work</h2>
+
+      <div class="contact-title-script-wrap">
+        <h3 class="contact-title-script">together</h3>
+      </div>
+
+      <img src="images/rabbit7.png" class="contact-rotating" alt="">
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-button-wrap">
+        <a href="https://mail.google.com/mail/u/0/?tab=km#inbox" class="contact-button">
+          Send mail
+        </a>
+      </div>
+
+      <div class="contact-email">
+        govnobatii@gmail.com
+      </div>
+    </div>
+
+    <div class="contact-socials">
+      <a href="https://www.instagram.com/10012002sos/" target="_blank" rel="noopener noreferrer">
+        <img src="images/instagram.png" alt="Instagram">
+      </a>
+
+      <a href="https://www.behance.net/olesiasimonova" target="_blank" rel="noopener noreferrer">
+        <img src="images/behance.png" alt="Behance">
+      </a>
+
+      <a href="https://www.linkedin.com/in/olesia-simonova-7111a038a/" target="_blank" rel="noopener noreferrer">
+        <img src="images/linkedin.png" alt="LinkedIn">
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  </main>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const rabbit = document.querySelector(".hero-image");
+  const wrap = document.querySelector(".hero-image-wrap");
+
+  if (!rabbit || !wrap) return;
+
+  let hovering = false;
+  let baseRotate = 18;
+
+  wrap.addEventListener("mouseenter", () => {
+    hovering = true;
+  });
+
+  wrap.addEventListener("mouseleave", () => {
+    hovering = false;
+    rabbit.style.transform = `rotate(${baseRotate}deg) translate(0px, 0px)`;
+  });
+
+  wrap.addEventListener("mousemove", (e) => {
+    if (!hovering) return;
+
+    const rect = wrap.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentX = (x / rect.width - 0.5) * 2;
+
+    const moveX = -percentX * 18;
+    const rotate = baseRotate - percentX * 4;
+
+    rabbit.style.transform = `translateX(${moveX}px) rotate(${rotate}deg)`;
+  });
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const track = document.querySelector(".gg-track");
+    const section = document.querySelector(".gg-scroll");
+    const cards = gsap.utils.toArray(".gg-card");
+    const lastCard = cards[cards.length - 1];
+
+    const getMove = () => lastCard.offsetLeft;
+
+    gsap.to(track, {
+      x: () => -getMove(),
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => "+=" + ((track.scrollWidth - window.innerWidth - window.innerHeight * 0.4) * 0.5),
+        scrub: 2,
+        pin: true,
+        invalidateOnRefresh: true
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const sTrack = document.getElementById("s-track");
+    const sSection = document.getElementById("s-scroll");
+
+    if (sTrack && sSection) {
+      gsap.to(sTrack, {
+        x: () => -(sTrack.scrollWidth - window.innerWidth),
+        ease: "none",
+        scrollTrigger: {
+          trigger: sSection,
+          start: "top top",
+          end: () => "+=" + ((sTrack.scrollWidth - window.innerWidth)* 0.5),
+          scrub: 2,
+          pin: true,
+          invalidateOnRefresh: true
+        }
+      });
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const yuTrack = document.getElementById("yu-track");
+    const yuSection = document.getElementById("yu-scroll");
+
+    if (yuTrack && yuSection) {
+      const yuLastCard = yuTrack.querySelector(".yu-card:last-child");
+
+      gsap.to(yuTrack, {
+        x: () => -(yuLastCard.offsetLeft - 30),
+        ease: "none",
+        scrollTrigger: {
+          trigger: yuSection,
+          start: "top top",
+          end: () => "+=" + ((yuLastCard.offsetLeft - 30) * 0.5),
+          scrub: 2,
+          pin: true,
+          invalidateOnRefresh: true
+        }
+      });
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const track = document.getElementById("other-track");
+    const section = document.getElementById("other-scroll");
+    const lastCard = track.querySelector(".other-card:last-child");
+
+    gsap.to(track, {
+      x: () => -(lastCard.offsetLeft - 30),
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => "+=" + ((lastCard.offsetLeft - 30) * 0.7), // ускорение как у Yu
+        scrub: 0.7,
+        pin: true,
+        invalidateOnRefresh: true
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".hero-text", {
+      xPercent: -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "50% top",
+        scrub: 0.7
+      }
+    });
+
+    gsap.from(".about-left h2", {
+      opacity: 0,
+      y: 60,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top 78%",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    gsap.from(".about-left p", {
+      opacity: 0,
+      y: 60,
+      duration: 1,
+      delay: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top 74%",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    gsap.from(".about-gif", {
+      opacity: 0,
+      y: 80,
+      duration: 1.2,
+      delay: 0.25,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top 72%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".contact-heading", {
+    opacity: 0,
+    y: 60,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".contact-block",
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  gsap.from(".contact-info", {
+    opacity: 0,
+    y: 60,
+    duration: 1,
+    delay: 0.15,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".contact-block",
+      start: "top 76%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+  gsap.from(".contact-socials", {
+    opacity: 0,
+    y: 60,
+    duration: 1,
+    delay: 0.3,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".contact-block",
+      start: "top 72%",
+      toggleActions: "play none none reverse"
+    }
+  });
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // твои анимации...
+
+  // 👇 ВРАЩЕНИЕ КРОЛИКА
+  gsap.to(".contact-rotating", {
+    rotation: 360,
+    duration: 2,
+    ease: "none",
+    repeat: -1
+  });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+@font-face {
+  font-family: "Zalando Black";
+  src: url("fonts/ZalandoSansExpanded-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Zalando Regular";
+  src: url("fonts/ZalandoSansExpanded-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Zalando Semibold";
+  src: url("fonts/ZalandoSansExpanded-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f4cf49;
+  color: #000;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.page {
+  width: 100%;
+}
+
+/* =========================
+   BLOCK 1 — HERO
+========================= */
+
+.hero {
+  width: 100%;
+  height: 60vw;
+  min-height: 60vw;
+  background: #f4cf49;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero-text h1 {
+  font-family: "Zalando Black", Arial, sans-serif;
+  width: 100%;
+  font-size: 22vw;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #000;
+  padding: 1vw;
+}
+
+.hero-image-wrap {
+  position: absolute;
+  right: -6vw;
+  top: -3vw;
+  z-index: 2;
+}
+
+.hero-image {
+  width: min(60vw, 1200px);
+  transform: rotate(18deg);
+  transform-origin: center center;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+/* HERO animation */
+.hero-text {
+  will-change: transform, opacity;
+}
+
+/* ABOUT animation start state */
+.about-left h2,
+.about-left p,
+.about-gif {
+  will-change: transform, opacity;
+}
+
+/* =========================
+   BLOCK 2 — ABOUT
+========================= */
+
+.about {
+  width: 100%;
+  min-height: 58vw;
+  background: #f4cf49;
+  padding: 0 3vw 3vw 3vw;
+  position: relative;
+}
+
+.about-inner {
+  width: 100%;
+  min-height: 58vw;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: start;
+}
+
+.about-left {
+  padding-top: 6.2vw;
+  position: relative;
+  transform: translateX(16vw);
+}
+
+.about-left h2 {
+  font-family: "Zalando Semibold", Arial, sans-serif;
+  font-size: clamp(70px, 8vw, 145px);
+  line-height: 0.9;
+  font-weight: 600;
+  margin-bottom: 1.8vw;
+  letter-spacing: -0.03em;
+}
+
+.about-left p {
+  font-family: "Zalando Regular", Arial, sans-serif;
+  font-size: clamp(16px, 2.5vw, 31px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  max-width: 22vw;
+}
+
+.about-right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  top: -1.5vw;
+  left: -2vw;
+}
+
+.about-gif {
+  width: min(75vw, 1000px);
+  object-fit: contain;
+}
+
+
+/* =========================
+   BLOCK 3 — GG horizontal pinned scroll
+========================= */
+
+.gg-scroll {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #f4cf49;
+  margin-top: -16vh;
+}
+
+.gg-track {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5vw;
+  padding: 0 0 6vh 25vw;
+  width: max-content;
+  margin-top: 6vh;
+}
+
+.gg-card {
+  flex: 0 0 auto;
+  width: 52vw;
+  height: 88vh;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.gg-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.s-scroll {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #f4cf49;
+}
+
+.s-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.s-track {
+  display: flex;
+  gap: 1.5vw;
+  width: max-content;
+  padding: 0 0 6vh 24vw;
+  margin-top: 6vh;
+}
+
+.s-card {
+  flex: 0 0 auto;
+  width: 52vw;
+  height: 88vh;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.s-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.yu-scroll {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #f4cf49;
+}
+
+.yu-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.yu-track {
+  display: flex;
+  gap: 1.5vw;
+  width: max-content;
+  padding: 0 0 6vh 24vw;
+  margin-top: 6vh;
+}
+
+.yu-card {
+  flex: 0 0 auto;
+  width: 52vw;
+  height: 88vh;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.yu-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.other-scroll {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #f4cf49;
+}
+
+.other-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.other-track {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5vw;
+  width: max-content;
+  padding: 0 0 3vh 24vw;
+  margin-top: 8vh;
+}
+
+.other-title {
+  flex: 0 0 auto;
+  width: 16vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.other-title h2 {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: "Zalando Black", Arial, sans-serif;
+  font-size: 5.5vw;
+  line-height: 0.9;
+  margin: 0;
+}
+
+/* все карточки одинаковой высоты */
+.other-card {
+  flex: 0 0 auto;
+  height: 80vh;
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* вертикальные уже */
+.other-card.vertical {
+  width: 26vw;
+}
+
+/* горизонтальные шире, но не слишком */
+.other-card.horizontal {
+  width: 34vw;
+}
+
+/* важно: картинка заполняет карточку */
+.other-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+.contact-block {
+  width: 100%;
+  background: #f4cf49;
+  padding: 6vh 3vw 5vh;
+  overflow: hidden;
+}
+
+.contact-inner {
+  width: 100%;
+}
+
+.contact-heading {
+  position: relative;
+  margin-bottom: 2vh;
+}
+
+.contact-title-main {
+  font-family: "Zalando Black", Arial, sans-serif;
+  font-size: clamp(82px, 13vw, 280px);
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  color: #000;
+  margin: 0;
+}
+
+.contact-title-script-wrap {
+  position: absolute;
+  left: 0;
+  top: 10vw;
+  width: 100%;
+  height: 24vw;
+  pointer-events: none;
+}
+
+.contact-title-script {
+  font-family: "Zalando Black", Arial, sans-serif;
+  font-size: clamp(82px, 13vw, 280px);
+  line-height: 0.88;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2vw;
+  margin-top: 16vw;
+  margin-bottom: 5vh;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-rotating {
+  position: absolute;
+  right: 5vw;
+  bottom: -3.5vw;
+
+  width: 260px;
+
+  /* ВАЖНО — точка вращения (голова) */
+  transform-origin: 55% 40%;
+}
+
+.contact-button-wrap {
+  display: inline-block;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 280px;
+  height: 78px;
+  padding: 0 24px;
+
+  background-color: #000;
+  color: #f4cf49;
+  border: 2px solid #000;
+  border-radius: 999px;
+
+  font-family: "Zalando Semibold", Arial, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  text-decoration: none;
+
+  transform-origin: 50% 40%;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease,
+              color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #f4cf49;
+  color: #000;
+  transform: translateY(-260px) scale(6) rotate(-20deg);
+}
+
+.contact-email {
+  color: #000;
+  font-family: "Zalando Semibold", Arial, sans-serif;
+  font-size: clamp(24px, 3vw, 64px);
+  line-height: 1;
+}
+
+.contact-socials {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4vw;
+}
+
+.contact-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-socials img {
+  width: 48px;
+  height: 48px;
+
+  transition: filter 0.3s ease;
+}
+
+/* HOVER */
+.contact-socials a:hover {
+  background: #000;
+}
+
+.contact-socials a:hover img {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(36%) saturate(600%) hue-rotate(5deg) brightness(102%) contrast(95%);
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.contact-heading,
+.contact-info,
+.contact-socials {
+  will-change: transform, opacity;
+}
+
+body {
+  cursor: url("images/rabbit8.png") 8 8, auto;
+}
+
+a, button {
+  cursor: url("images/rabbit8.png") 8 8, pointer;
+}
