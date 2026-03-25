@@ -190,7 +190,8 @@ img {
   position: relative;
   height: 100svh;
   min-height: 640px;
-  overflow: hidden;
+  overflow-x: visible;
+  overflow-y: hidden;
   background: var(--bg);
 }
 
