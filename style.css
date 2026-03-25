@@ -19,6 +19,16 @@
   font-style: normal;
 }
 
+:root {
+  --bg: #f4cf49;
+  --text: #000;
+  --page-max: 1800px;
+  --section-pad-x: clamp(16px, 3vw, 56px);
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,21 +38,26 @@
 html,
 body {
   width: 100%;
-  overflow-x: hidden;
+  min-width: 320px;
+  overflow-x: clip;
 }
 
 body {
-  background: #f4cf49;
-  color: #000;
+  background: var(--bg);
+  color: var(--text);
 }
 
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 .page {
   width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  position: relative;
 }
 
 /* =========================
@@ -51,9 +66,7 @@ img {
 
 .hero {
   width: 100%;
-  height: 60vw;
-  min-height: 60vw;
-  background: #f4cf49;
+  background: var(--bg);
   overflow: hidden;
   position: relative;
 }
@@ -61,54 +74,47 @@ img {
 .hero-inner {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: clamp(520px, 60vw, 1180px);
+  aspect-ratio: 1.66 / 1;
 }
 
 .hero-text {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 1;
-  width: 100%;
+  will-change: transform, opacity;
 }
 
 .hero-text h1 {
-  font-family: "Zalando Black", Arial, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  font-size: 22vw;
+  padding: clamp(8px, 1vw, 18px);
+  font-family: "Zalando Black", Arial, sans-serif;
+  font-size: clamp(150px, 22vw, 420px);
   line-height: 0.8;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   font-weight: 900;
   color: #000;
-  padding: 1vw;
 }
 
 .hero-image-wrap {
   position: absolute;
-  right: -6vw;
-  top: -3vw;
   z-index: 2;
+  right: clamp(-80px, -6vw, -20px);
+  top: clamp(-30px, -3vw, 0px);
+  width: clamp(340px, 60vw, 1200px);
+  pointer-events: none;
 }
 
 .hero-image {
-  width: min(60vw, 1200px);
+  width: 100%;
   transform: rotate(18deg);
   transform-origin: center center;
   transition: transform 0.25s ease;
   will-change: transform;
-}
-
-/* HERO animation */
-.hero-text {
-  will-change: transform, opacity;
-}
-
-/* ABOUT animation start state */
-.about-left h2,
-.about-left p,
-.about-gif {
-  will-change: transform, opacity;
 }
 
 /* =========================
@@ -117,24 +123,29 @@ img {
 
 .about {
   width: 100%;
-  min-height: 58vw;
-  background: #f4cf49;
-  padding: 0 3vw 3vw 3vw;
+  background: var(--bg);
+  padding: 0 var(--section-pad-x) clamp(20px, 3vw, 56px);
   position: relative;
 }
 
 .about-inner {
   width: 100%;
-  min-height: 58vw;
+  min-height: clamp(500px, 58vw, 1120px);
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
 }
 
 .about-left {
-  padding-top: 6.2vw;
+  padding-top: clamp(36px, 6.2vw, 120px);
+  padding-left: clamp(32px, 10vw, 220px);
   position: relative;
-  transform: translateX(16vw);
+}
+
+.about-left h2,
+.about-left p,
+.about-gif {
+  will-change: transform, opacity;
 }
 
 .about-left h2 {
@@ -142,7 +153,7 @@ img {
   font-size: clamp(70px, 8vw, 145px);
   line-height: 0.9;
   font-weight: 600;
-  margin-bottom: 1.8vw;
+  margin-bottom: clamp(12px, 1.8vw, 34px);
   letter-spacing: -0.03em;
 }
 
@@ -151,7 +162,7 @@ img {
   font-size: clamp(16px, 2.5vw, 31px);
   line-height: 1.1;
   letter-spacing: -0.015em;
-  max-width: 22vw;
+  max-width: clamp(260px, 22vw, 420px);
 }
 
 .about-right {
@@ -159,120 +170,84 @@ img {
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  top: -1.5vw;
-  left: -2vw;
 }
 
 .about-gif {
-  width: min(75vw, 1000px);
+  width: clamp(420px, 75vw, 1000px);
+  max-width: 100%;
   object-fit: contain;
+  transform: translate(-2vw, -1.5vw);
 }
-
 
 /* =========================
    BLOCK 3 — GG horizontal pinned scroll
 ========================= */
 
-.gg-scroll {
+.gg-scroll,
+.s-scroll,
+.yu-scroll,
+.other-scroll {
   position: relative;
-  height: 100vh;
+  height: 100svh;
+  min-height: 640px;
   overflow: hidden;
-  background: #f4cf49;
-  margin-top: -16vh;
+  background: var(--bg);
+}
+
+.gg-scroll {
+  margin-top: clamp(-16vh, -12vh, -8vh);
+}
+
+.gg-track,
+.s-track,
+.yu-track,
+.other-track {
+  display: flex;
+  width: max-content;
 }
 
 .gg-track {
-  display: flex;
   align-items: flex-end;
-  gap: 1.5vw;
-  padding: 0 0 6vh 25vw;
-  width: max-content;
-  margin-top: 6vh;
+  gap: clamp(12px, 1.5vw, 28px);
+  padding: 0 0 6svh clamp(80px, 25vw, 420px);
+  margin-top: 6svh;
 }
 
-.gg-card {
-  flex: 0 0 auto;
-  width: 52vw;
-  height: 88vh;
-  overflow: hidden;
-  border-radius: 24px;
-}
-
-.gg-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-
-.s-scroll {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background: #f4cf49;
-}
-
-.s-sticky {
+.s-sticky,
+.yu-sticky,
+.other-sticky {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100svh;
   overflow: hidden;
 }
 
-.s-track {
-  display: flex;
-  gap: 1.5vw;
-  width: max-content;
-  padding: 0 0 6vh 24vw;
-  margin-top: 6vh;
-}
-
-.s-card {
-  flex: 0 0 auto;
-  width: 52vw;
-  height: 88vh;
-  overflow: hidden;
-  border-radius: 24px;
-}
-
-.s-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.yu-scroll {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background: #f4cf49;
-}
-
-.yu-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
-}
-
+.s-track,
 .yu-track {
-  display: flex;
-  gap: 1.5vw;
-  width: max-content;
-  padding: 0 0 6vh 24vw;
-  margin-top: 6vh;
+  gap: clamp(12px, 1.5vw, 28px);
+  padding: 0 0 6svh clamp(80px, 24vw, 420px);
+  margin-top: 6svh;
 }
 
+.other-track {
+  align-items: flex-end;
+  gap: clamp(12px, 1.5vw, 28px);
+  padding: 0 0 3svh clamp(80px, 24vw, 420px);
+  margin-top: 8svh;
+}
+
+.gg-card,
+.s-card,
 .yu-card {
   flex: 0 0 auto;
-  width: 52vw;
-  height: 88vh;
+  width: clamp(420px, 52vw, 980px);
+  height: min(88svh, 980px);
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
 }
 
+.gg-card img,
+.s-card img,
 .yu-card img {
   width: 100%;
   height: 100%;
@@ -280,33 +255,10 @@ img {
   display: block;
 }
 
-.other-scroll {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background: #f4cf49;
-}
-
-.other-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.other-track {
-  display: flex;
-  align-items: flex-end;
-  gap: 1.5vw;
-  width: max-content;
-  padding: 0 0 3vh 24vw;
-  margin-top: 8vh;
-}
-
 .other-title {
   flex: 0 0 auto;
-  width: 16vw;
-  height: 80vh;
+  width: clamp(130px, 16vw, 300px);
+  height: min(80svh, 900px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -316,43 +268,43 @@ img {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-family: "Zalando Black", Arial, sans-serif;
-  font-size: 5.5vw;
+  font-size: clamp(46px, 5.5vw, 110px);
   line-height: 0.9;
   margin: 0;
 }
 
-/* все карточки одинаковой высоты */
 .other-card {
   flex: 0 0 auto;
-  height: 80vh;
-  border-radius: 24px;
+  height: min(80svh, 900px);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: transparent;
 }
 
-/* вертикальные уже */
 .other-card.vertical {
-  width: 26vw;
+  width: clamp(220px, 26vw, 520px);
 }
 
-/* горизонтальные шире, но не слишком */
 .other-card.horizontal {
-  width: 34vw;
+  width: clamp(300px, 34vw, 680px);
 }
 
-/* важно: картинка заполняет карточку */
 .other-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
 }
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact-block {
   width: 100%;
-  background: #f4cf49;
-  padding: 6vh 3vw 5vh;
+  background: var(--bg);
+  padding: 6svh var(--section-pad-x) 5svh;
   overflow: hidden;
 }
 
@@ -362,7 +314,13 @@ img {
 
 .contact-heading {
   position: relative;
-  margin-bottom: 2vh;
+  margin-bottom: 2svh;
+}
+
+.contact-heading,
+.contact-info,
+.contact-socials {
+  will-change: transform, opacity;
 }
 
 .contact-title-main {
@@ -377,9 +335,9 @@ img {
 .contact-title-script-wrap {
   position: absolute;
   left: 0;
-  top: 10vw;
+  top: clamp(60px, 10vw, 180px);
   width: 100%;
-  height: 24vw;
+  height: clamp(100px, 24vw, 320px);
   pointer-events: none;
 }
 
@@ -397,21 +355,18 @@ img {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 2vw;
-  margin-top: 16vw;
-  margin-bottom: 5vh;
+  gap: clamp(12px, 2vw, 36px);
+  margin-top: clamp(90px, 16vw, 260px);
+  margin-bottom: 5svh;
   position: relative;
   z-index: 10;
 }
 
 .contact-rotating {
   position: absolute;
-  right: 5vw;
-  bottom: -3.5vw;
-
-  width: 260px;
-
-  /* ВАЖНО — точка вращения (голова) */
+  right: clamp(8px, 5vw, 70px);
+  bottom: clamp(-40px, -3.5vw, -8px);
+  width: clamp(120px, 18vw, 260px);
   transform-origin: 55% 40%;
 }
 
@@ -423,25 +378,22 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 280px;
-  height: 78px;
+  min-width: clamp(180px, 20vw, 280px);
+  height: clamp(52px, 5vw, 78px);
   padding: 0 24px;
-
   background-color: #000;
   color: #f4cf49;
   border: 2px solid #000;
   border-radius: 999px;
-
   font-family: "Zalando Semibold", Arial, sans-serif;
-  font-size: 34px;
+  font-size: clamp(22px, 2.4vw, 34px);
   line-height: 1;
   text-decoration: none;
-
   transform-origin: 50% 40%;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-              background-color 0.3s ease,
-              color 0.3s ease;
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .contact-button:hover {
@@ -461,85 +413,65 @@ img {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 4vw;
+  gap: clamp(18px, 4vw, 72px);
 }
 
 .contact-socials a {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 100px;
-  height: 100px;
-
+  width: clamp(58px, 7vw, 100px);
+  height: clamp(58px, 7vw, 100px);
   border-radius: 16px;
   transition: background-color 0.3s ease;
 }
 
 .contact-socials img {
-  width: 48px;
-  height: 48px;
-
+  width: clamp(26px, 3.2vw, 48px);
+  height: clamp(26px, 3.2vw, 48px);
   transition: filter 0.3s ease;
 }
 
-/* HOVER */
 .contact-socials a:hover {
   background: #000;
 }
 
 .contact-socials a:hover img {
-  filter: brightness(0) saturate(100%) invert(78%) sepia(36%) saturate(600%) hue-rotate(5deg) brightness(102%) contrast(95%);
+  filter: brightness(0) saturate(100%) invert(78%) sepia(36%) saturate(600%)
+    hue-rotate(5deg) brightness(102%) contrast(95%);
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
-.contact-heading,
-.contact-info,
-.contact-socials {
-  will-change: transform, opacity;
-}
-
+/* cursor */
 body {
   cursor: url("images/rabbit8.png") 8 8, auto;
 }
 
-a, button {
+a,
+button {
   cursor: url("images/rabbit8.png") 8 8, pointer;
 }
 
+/* =========================
+   BREAKPOINTS
+========================= */
 
-
-/* ==================================================
-   ADAPTIVE
-   вставить в самый конец style.css
-================================================== */
-
-/* ---------- large desktop ---------- */
 @media (min-width: 1600px) {
-  .hero {
-    height: 58vw;
-    min-height: 58vw;
+  .hero-inner {
+    min-height: 960px;
   }
 
   .hero-text h1 {
-    font-size: 20vw;
+    font-size: clamp(180px, 20vw, 400px);
   }
 
   .hero-image-wrap {
-    right: -4vw;
-    top: -2vw;
-  }
-
-  .hero-image {
+    right: -3vw;
+    top: -1vw;
     width: min(56vw, 1100px);
   }
 
   .about-left {
-    transform: translateX(12vw);
+    padding-left: clamp(40px, 8vw, 180px);
   }
 
   .about-left p {
@@ -548,37 +480,27 @@ a, button {
 
   .about-gif {
     width: min(68vw, 900px);
-  }
-
-  .contact-rotating {
-    width: 220px;
-    right: 4vw;
-    bottom: -2.5vw;
+    transform: translate(-1vw, -1vw);
   }
 }
 
-/* ---------- laptop ---------- */
 @media (max-width: 1440px) {
-  .hero {
-    height: 62vw;
-    min-height: 62vw;
+  .hero-inner {
+    min-height: clamp(520px, 62vw, 1000px);
   }
 
   .hero-text h1 {
-    font-size: 21vw;
+    font-size: clamp(140px, 21vw, 360px);
   }
 
   .hero-image-wrap {
     right: -7vw;
     top: -2vw;
-  }
-
-  .hero-image {
     width: min(58vw, 980px);
   }
 
   .about-left {
-    transform: translateX(10vw);
+    padding-left: clamp(24px, 8vw, 140px);
     padding-top: 5vw;
   }
 
@@ -594,28 +516,28 @@ a, button {
   .gg-card,
   .s-card,
   .yu-card {
-    width: 58vw;
-    height: 84vh;
+    width: clamp(420px, 58vw, 920px);
+    height: min(84svh, 900px);
   }
 
   .other-title {
-    width: 18vw;
+    width: clamp(140px, 18vw, 280px);
   }
 
   .other-title h2 {
-    font-size: 6vw;
+    font-size: clamp(48px, 6vw, 96px);
   }
 
   .other-card {
-    height: 76vh;
+    height: min(76svh, 860px);
   }
 
   .other-card.vertical {
-    width: 28vw;
+    width: clamp(230px, 28vw, 470px);
   }
 
   .other-card.horizontal {
-    width: 38vw;
+    width: clamp(310px, 38vw, 620px);
   }
 
   .contact-title-script-wrap {
@@ -623,39 +545,33 @@ a, button {
   }
 
   .contact-info {
-    margin-top: 18vw;
+    margin-top: clamp(100px, 18vw, 250px);
   }
 
   .contact-rotating {
-    width: 210px;
+    width: clamp(120px, 15vw, 210px);
     right: 3vw;
     bottom: -2vw;
   }
 }
 
-/* ---------- small laptop / large tablet ---------- */
 @media (max-width: 1200px) {
-  .hero {
-    height: 68vw;
-    min-height: 68vw;
+  .hero-inner {
+    min-height: clamp(500px, 68vw, 920px);
   }
 
   .hero-text h1 {
-    font-size: 21.5vw;
+    font-size: clamp(120px, 21.5vw, 300px);
     line-height: 0.82;
   }
 
   .hero-image-wrap {
     right: -10vw;
     top: 1vw;
-  }
-
-  .hero-image {
     width: min(58vw, 760px);
   }
 
   .about {
-    min-height: auto;
     padding: 2vw 4vw 4vw;
   }
 
@@ -665,7 +581,7 @@ a, button {
   }
 
   .about-left {
-    transform: translateX(6vw);
+    padding-left: clamp(12px, 6vw, 70px);
     padding-top: 4vw;
   }
 
@@ -678,51 +594,47 @@ a, button {
     font-size: clamp(16px, 2.2vw, 24px);
   }
 
-  .about-right {
-    top: 0;
-    left: 0;
-  }
-
   .about-gif {
     width: min(62vw, 620px);
+    transform: none;
   }
 
   .gg-track,
   .s-track,
   .yu-track {
-    padding-left: 18vw;
+    padding-left: clamp(50px, 18vw, 180px);
   }
 
   .gg-card,
   .s-card,
   .yu-card {
-    width: 64vw;
-    height: 80vh;
+    width: clamp(380px, 64vw, 780px);
+    height: min(80svh, 820px);
   }
 
   .other-track {
-    padding-left: 18vw;
+    padding-left: clamp(50px, 18vw, 180px);
   }
 
   .other-title {
-    width: 20vw;
-    height: 72vh;
+    width: clamp(120px, 20vw, 220px);
+    height: min(72svh, 760px);
   }
 
   .other-title h2 {
-    font-size: 6.5vw;
+    font-size: clamp(46px, 6.5vw, 88px);
   }
 
   .other-card {
-    height: 72vh;
+    height: min(72svh, 760px);
   }
 
   .other-card.vertical {
-    width: 32vw;
+    width: clamp(220px, 32vw, 360px);
   }
 
   .other-card.horizontal {
-    width: 42vw;
+    width: clamp(300px, 42vw, 500px);
   }
 
   .contact-title-main,
@@ -736,7 +648,7 @@ a, button {
   }
 
   .contact-info {
-    margin-top: 18vw;
+    margin-top: clamp(90px, 18vw, 220px);
     gap: 1.6vw;
   }
 
@@ -767,15 +679,14 @@ a, button {
   }
 }
 
-/* ---------- tablet ---------- */
 @media (max-width: 991px) {
-  .hero {
-    height: 86vw;
-    min-height: 86vw;
+  .hero-inner {
+    min-height: clamp(460px, 86vw, 780px);
+    aspect-ratio: auto;
   }
 
   .hero-text h1 {
-    font-size: 22vw;
+    font-size: clamp(100px, 22vw, 230px);
     line-height: 0.84;
     padding: 2vw;
   }
@@ -783,9 +694,6 @@ a, button {
   .hero-image-wrap {
     right: -14vw;
     top: 4vw;
-  }
-
-  .hero-image {
     width: min(60vw, 620px);
   }
 
@@ -799,7 +707,7 @@ a, button {
   }
 
   .about-left {
-    transform: none;
+    padding-left: 0;
     padding-top: 0;
   }
 
@@ -825,59 +733,59 @@ a, button {
   .s-scroll,
   .yu-scroll,
   .other-scroll {
-    height: 100svh;
+    min-height: 560px;
   }
 
   .gg-track,
   .s-track,
   .yu-track {
     gap: 2vw;
-    padding-left: 12vw;
-    padding-bottom: 5vh;
+    padding-left: clamp(32px, 12vw, 120px);
+    padding-bottom: 5svh;
   }
 
   .gg-card,
   .s-card,
   .yu-card {
-    width: 74vw;
-    height: 74vh;
-    border-radius: 18px;
+    width: clamp(320px, 74vw, 700px);
+    height: min(74svh, 720px);
+    border-radius: var(--radius-md);
   }
 
   .other-track {
     gap: 2vw;
-    padding-left: 12vw;
-    padding-bottom: 4vh;
+    padding-left: clamp(32px, 12vw, 120px);
+    padding-bottom: 4svh;
   }
 
   .other-title {
-    width: 22vw;
-    height: 66vh;
+    width: clamp(110px, 22vw, 180px);
+    height: min(66svh, 650px);
   }
 
   .other-title h2 {
-    font-size: 7vw;
+    font-size: clamp(40px, 7vw, 74px);
   }
 
   .other-card {
-    height: 66vh;
-    border-radius: 18px;
+    height: min(66svh, 650px);
+    border-radius: var(--radius-md);
   }
 
   .other-card.vertical {
-    width: 36vw;
+    width: clamp(200px, 36vw, 320px);
   }
 
   .other-card.horizontal {
-    width: 50vw;
+    width: clamp(260px, 50vw, 420px);
   }
 
   .other-card img {
-    border-radius: 18px;
+    border-radius: var(--radius-md);
   }
 
   .contact-block {
-    padding: 5vh 4vw 5vh;
+    padding: 5svh 4vw 5svh;
   }
 
   .contact-title-main,
@@ -892,11 +800,11 @@ a, button {
   }
 
   .contact-info {
-    margin-top: 16vw;
+    margin-top: clamp(80px, 16vw, 160px);
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 2vw;
-    margin-bottom: 4vh;
+    margin-bottom: 4svh;
   }
 
   .contact-button {
@@ -946,15 +854,13 @@ a, button {
   }
 }
 
-/* ---------- mobile ---------- */
 @media (max-width: 767px) {
-  .hero {
-    height: 110vw;
-    min-height: 110vw;
+  .hero-inner {
+    min-height: clamp(420px, 110vw, 620px);
   }
 
   .hero-text h1 {
-    font-size: 23vw;
+    font-size: clamp(82px, 23vw, 190px);
     line-height: 0.86;
     padding: 3vw;
   }
@@ -962,9 +868,6 @@ a, button {
   .hero-image-wrap {
     right: -18vw;
     top: 10vw;
-  }
-
-  .hero-image {
     width: 68vw;
   }
 
@@ -978,7 +881,7 @@ a, button {
   }
 
   .about-left {
-    transform: none;
+    padding-left: 0;
     padding-top: 0;
   }
 
@@ -1002,65 +905,65 @@ a, button {
   }
 
   .gg-scroll {
-    margin-top: -8vh;
+    margin-top: -8svh;
   }
 
   .gg-track,
   .s-track,
   .yu-track {
     gap: 3vw;
-    padding-left: 8vw;
-    padding-bottom: 4vh;
-    margin-top: 4vh;
+    padding-left: clamp(20px, 8vw, 60px);
+    padding-bottom: 4svh;
+    margin-top: 4svh;
   }
 
   .gg-card,
   .s-card,
   .yu-card {
-    width: 82vw;
-    height: 64vh;
-    border-radius: 16px;
+    width: clamp(260px, 82vw, 420px);
+    height: min(64svh, 560px);
+    border-radius: var(--radius-sm);
   }
 
   .other-track {
     gap: 3vw;
-    padding-left: 8vw;
-    padding-bottom: 3vh;
-    margin-top: 5vh;
+    padding-left: clamp(20px, 8vw, 60px);
+    padding-bottom: 3svh;
+    margin-top: 5svh;
   }
 
   .other-title {
-    width: 26vw;
-    height: 58vh;
+    width: clamp(90px, 26vw, 140px);
+    height: min(58svh, 500px);
   }
 
   .other-title h2 {
-    font-size: 8vw;
+    font-size: clamp(34px, 8vw, 60px);
   }
 
   .other-card {
-    height: 58vh;
-    border-radius: 16px;
+    height: min(58svh, 500px);
+    border-radius: var(--radius-sm);
   }
 
   .other-card.vertical {
-    width: 44vw;
+    width: clamp(150px, 44vw, 220px);
   }
 
   .other-card.horizontal {
-    width: 62vw;
+    width: clamp(210px, 62vw, 300px);
   }
 
   .other-card img {
-    border-radius: 16px;
+    border-radius: var(--radius-sm);
   }
 
   .contact-block {
-    padding: 5vh 5vw 5vh;
+    padding: 5svh 5vw 5svh;
   }
 
   .contact-heading {
-    margin-bottom: 3vh;
+    margin-bottom: 3svh;
   }
 
   .contact-title-main,
@@ -1076,8 +979,8 @@ a, button {
   }
 
   .contact-info {
-    margin-top: 18vw;
-    margin-bottom: 4vh;
+    margin-top: clamp(70px, 18vw, 120px);
+    margin-bottom: 4svh;
     flex-direction: column;
     align-items: flex-start;
     gap: 2.5vw;
@@ -1119,24 +1022,19 @@ a, button {
   }
 }
 
-/* ---------- very small mobile ---------- */
 @media (max-width: 480px) {
-  .hero {
-    height: 122vw;
-    min-height: 122vw;
+  .hero-inner {
+    min-height: clamp(380px, 122vw, 560px);
   }
 
   .hero-text h1 {
-    font-size: 24vw;
+    font-size: clamp(72px, 24vw, 150px);
     padding: 4vw 3vw;
   }
 
   .hero-image-wrap {
     right: -22vw;
     top: 14vw;
-  }
-
-  .hero-image {
     width: 72vw;
   }
 
@@ -1155,28 +1053,28 @@ a, button {
   .gg-card,
   .s-card,
   .yu-card {
-    width: 86vw;
-    height: 58vh;
+    width: clamp(240px, 86vw, 360px);
+    height: min(58svh, 500px);
   }
 
   .other-title {
-    width: 30vw;
+    width: clamp(84px, 30vw, 120px);
   }
 
   .other-title h2 {
-    font-size: 9vw;
+    font-size: clamp(30px, 9vw, 52px);
   }
 
   .other-card {
-    height: 54vh;
+    height: min(54svh, 460px);
   }
 
   .other-card.vertical {
-    width: 50vw;
+    width: clamp(140px, 50vw, 200px);
   }
 
   .other-card.horizontal {
-    width: 70vw;
+    width: clamp(190px, 70vw, 280px);
   }
 
   .contact-title-main,
@@ -1189,7 +1087,7 @@ a, button {
   }
 
   .contact-info {
-    margin-top: 22vw;
+    margin-top: clamp(64px, 22vw, 110px);
   }
 
   .contact-button {
