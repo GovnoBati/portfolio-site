@@ -399,7 +399,7 @@ img {
 .contact-button:hover {
   background-color: #f4cf49;
   color: #000;
-  transform: translateY(-260px) scale(6) rotate(-20deg);
+  transform: translateY(-240px) scale(6) rotate(-20deg);
 }
 
 .contact-email {
