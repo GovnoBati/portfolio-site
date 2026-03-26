@@ -670,7 +670,7 @@ a, button {
   }
 
   .about-left h2 {
-    font-size: clamp(58px, 7vw, 110px);
+    font-size: clamp(54px, 6vw, 90px);
   }
 
   .about-left p {
