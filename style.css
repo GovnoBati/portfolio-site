@@ -51,8 +51,8 @@ img {
 
 .hero {
   width: 100%;
-  height: 60vw;
-  min-height: 60vw;
+  height: 70vw;
+  min-height: 70vw;
   background: #f4cf49;
   overflow: hidden;
   position: relative;
@@ -92,7 +92,7 @@ img {
 }
 
 .hero-image {
-  width: min(60vw, 1200px);
+  width: min(40vw, 1000px);
   transform: rotate(18deg);
   transform-origin: center center;
   transition: transform 0.25s ease;
