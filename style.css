@@ -92,7 +92,7 @@ img {
 }
 
 .hero-image {
-  width: min(40vw, 1000px);
+  width: min(30vw, 800px);
   transform: rotate(18deg);
   transform-origin: center center;
   transition: transform 0.25s ease;
