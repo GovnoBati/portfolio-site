@@ -139,7 +139,7 @@ img {
 
 .about-left h2 {
   font-family: "Zalando Semibold", Arial, sans-serif;
-  font-size: clamp(70px, 8vw, 145px);
+  font-size: clamp(66px, 7vw, 120px);
   line-height: 0.9;
   font-weight: 600;
   margin-bottom: 1.8vw;
@@ -148,7 +148,7 @@ img {
 
 .about-left p {
   font-family: "Zalando Regular", Arial, sans-serif;
-  font-size: clamp(16px, 2.5vw, 31px);
+  font-size: clamp(14px, 1.5vw, 25px);
   line-height: 1.1;
   letter-spacing: -0.015em;
   max-width: 22vw;
