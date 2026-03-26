@@ -535,7 +535,7 @@ a, button {
   }
 
   .hero-image {
-    width: min(56vw, 1100px);
+    width: min(30vw, 800px);
   }
 
   .about-left {
@@ -574,7 +574,7 @@ a, button {
   }
 
   .hero-image {
-    width: min(58vw, 980px);
+    width: min(30vw, 800px);
   }
 
   .about-left {
@@ -651,7 +651,7 @@ a, button {
   }
 
   .hero-image {
-    width: min(58vw, 760px);
+    width: min(30vw, 760px);
   }
 
   .about {
@@ -786,7 +786,7 @@ a, button {
   }
 
   .hero-image {
-    width: min(60vw, 620px);
+    width: min(30vw, 620px);
   }
 
   .about {
