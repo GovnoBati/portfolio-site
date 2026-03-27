@@ -511,6 +511,18 @@ a, button {
   cursor: url("images/rabbit8.png") 8 8, pointer;
 }
 
+/* =========================
+   RUN AWAY HOVER
+========================= */
+
+.gg-card,
+.s-card,
+.yu-card,
+.other-card {
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
 
 
 /* ==================================================
