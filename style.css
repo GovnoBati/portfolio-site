@@ -41,6 +41,28 @@ img {
   max-width: 100%;
 }
 
+/* =========================
+   HOVER SHAKE
+========================= */
+
+.shake-hover {
+  display: inline-block;
+  will-change: transform;
+}
+
+.shake-hover:hover {
+  animation: soft-shake 0.35s ease-in-out infinite;
+}
+
+@keyframes soft-shake {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  20%  { transform: translate(-1px, 1px) rotate(-0.8deg); }
+  40%  { transform: translate(1px, -1px) rotate(0.8deg); }
+  60%  { transform: translate(-1px, 0px) rotate(-0.4deg); }
+  80%  { transform: translate(1px, 1px) rotate(0.4deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
 .page {
   width: 100%;
 }
