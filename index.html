@@ -394,5 +394,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const runawayCards = document.querySelectorAll(".gg-card, .s-card, .yu-card, .other-card");
+
+  runawayCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const offsetX = x - centerX;
+      const offsetY = y - centerY;
+
+      const moveX = -(offsetX / centerX) * 12;
+      const moveY = -(offsetY / centerY) * 12;
+
+      card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "translate(0px, 0px)";
+    });
+  });
+});
+</script>
 </body>
 </html>
