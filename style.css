@@ -267,7 +267,7 @@ img {
 
 .eve-card {
   flex: 0 0 auto;
-  width: 56vw;
+  width: 62vw;
   height: 88vh;
   overflow: hidden;
   border-radius: 24px;
@@ -606,7 +606,7 @@ a, button {
   .gg-card,
   .s-card,
   .eve-card {
-    width: 58vw;
+    width: 62vw;
     height: 84vh;
   }
 
