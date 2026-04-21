@@ -77,11 +77,11 @@
 <section class="yu-scroll" id="yu-scroll">
   <div class="yu-sticky">
     <div class="yu-track" id="yu-track">
-      <div class="yu-card"><img src="images/Yu1.png" alt=""></div>
-      <div class="yu-card"><img src="images/Yu2.png" alt=""></div>
-      <div class="yu-card"><img src="images/Yu3.png" alt=""></div>
-      <div class="yu-card"><img src="images/Yu4.png" alt=""></div>
-      <div class="yu-card"><img src="images/Yu5.png" alt=""></div>
+      <div class="eve-card"><img src="images/Ev1.png" alt=""></div>
+      <div class="eve-card"><img src="images/Ev2.png" alt=""></div>
+      <div class="eve-card"><img src="images/Ev3.png" alt=""></div>
+      <div class="eve-card"><img src="images/E4.png" alt=""></div>
+      <div class="eve-card"><img src="images/Ev5.png" alt=""></div>
     </div>
   </div>
 </section>
@@ -237,19 +237,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const yuTrack = document.getElementById("yu-track");
-    const yuSection = document.getElementById("yu-scroll");
+    const eveTrack = document.getElementById("eve-track");
+    const eveSection = document.getElementById("eve-scroll");
 
-    if (yuTrack && yuSection) {
-      const yuLastCard = yuTrack.querySelector(".yu-card:last-child");
+    if (eveTrack && eveSection) {
+      const eveLastCard = eveTrack.querySelector(".eve-card:last-child");
 
-      gsap.to(yuTrack, {
-        x: () => -(yuLastCard.offsetLeft - 30),
+      gsap.to(eveTrack, {
+        x: () => -(eveLastCard.offsetLeft - 30),
         ease: "none",
         scrollTrigger: {
-          trigger: yuSection,
+          trigger: eveSection,
           start: "top top",
-          end: () => "+=" + ((yuLastCard.offsetLeft - 30) * 0.5),
+          end: () => "+=" + ((eveLastCard.offsetLeft - 30) * 0.5),
           scrub: 2,
           pin: true,
           invalidateOnRefresh: true
@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const runawayCards = document.querySelectorAll(".gg-card, .s-card, .yu-card, .other-card");
+  const runawayCards = document.querySelectorAll(".gg-card, .s-card, .eve-card, .other-card");
 
   runawayCards.forEach((card) => {
     card.addEventListener("mousemove", (e) => {
