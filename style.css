@@ -493,7 +493,7 @@ img {
 }
 
 .contact-socials a:hover img {
-  filter: brightness(0) saturate(100%) invert(78%) sepia(36%) saturate(600%) hue-rotate(5deg) brightness(102%) contrast(95%);
+  filter: brightness(0) saturate(100%) invert(86%) sepia(19%) saturate(4171%) hue-rotate(182deg) brightness(101%) contrast(101%);
 }
 
 html,
