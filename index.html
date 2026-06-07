@@ -204,8 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: () => "+=" + ((track.scrollWidth - window.innerWidth - window.innerHeight * 0.4) * 0.5),
-        scrub: 2,
+        end: () => "+=" + (track.scrollWidth - window.innerWidth - window.innerHeight * 0.4),
+        scrub: 2.5,
         pin: true,
         invalidateOnRefresh: true
       }
@@ -226,8 +226,8 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollTrigger: {
           trigger: sSection,
           start: "top top",
-          end: () => "+=" + ((sTrack.scrollWidth - window.innerWidth)* 0.5),
-          scrub: 2,
+          end: () => "+=" + (sTrack.scrollWidth - window.innerWidth),
+          scrub: 2.5,
           pin: true,
           invalidateOnRefresh: true
         }
@@ -251,8 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollTrigger: {
           trigger: eveSection,
           start: "top top",
-          end: () => "+=" + ((eveLastCard.offsetLeft - 30) * 0.5),
-          scrub: 2,
+          end: () => "+=" + (eveLastCard.offsetLeft - 30),
+          scrub: 2.5,
           pin: true,
           invalidateOnRefresh: true
         }
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: () => "+=" + ((lastCard.offsetLeft - 30) * 0.7), // ускорение как у Yu
+        end: () => "+=" + (lastCard.offsetLeft - 30), // ускорение как у Yu
         scrub: 0.7,
         pin: true,
         invalidateOnRefresh: true
