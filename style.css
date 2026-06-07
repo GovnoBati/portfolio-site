@@ -149,9 +149,9 @@ img {
 .about-left p {
   font-family: "Zalando Regular", Arial, sans-serif;
   font-size: clamp(14px, 1.5vw, 25px);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  max-width: 22vw;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  max-width: 20vw;
 }
 
 .about-right {
